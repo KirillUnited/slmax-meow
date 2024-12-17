@@ -10,13 +10,13 @@ export default function Home() {
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
         <span className={title()}>Make&nbsp;</span>
-        <span className={title({ color: "violet" })}>beautiful&nbsp;</span>
+        <span className={title({ color: "violet" })}>great&nbsp;</span>
         <br />
         <span className={title()}>
-          websites regardless of your design experience.
+          shopping.
         </span>
         <div className={subtitle({ class: "mt-4" })}>
-          Beautiful, fast and modern React UI library.
+          Everything you need to have a great shop. 
         </div>
       </div>
 
@@ -28,14 +28,14 @@ export default function Home() {
             radius: "full",
             variant: "shadow",
           })}
-          href={siteConfig.links.docs}
+          href={'/'}
         >
           Documentation
         </Link>
         <Link
           isExternal
           className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.github}
+          href={'/'}
         >
           <GithubIcon size={20} />
           GitHub
