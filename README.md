@@ -1,8 +1,4 @@
-# Next.js & NextUI Template
-
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
-
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+## Live preview - https://slmax-meow.netlify.app/
 
 ## Technologies Used
 
@@ -13,6 +9,11 @@ This is a template for creating applications using Next.js 14 (app directory) an
 - [TypeScript](https://www.typescriptlang.org/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [next-themes](https://github.com/pacocoursey/next-themes)
+
+## Что использовал дополнительно
+
+- [fakestoreapi](https://fakestoreapi.com/docs) - Fake store rest API для удобства работы с данными
+- [netlify](https://www.netlify.com/) - сервис для деплоя проекта
 
 ## How to Use
 
