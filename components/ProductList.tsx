@@ -1,8 +1,5 @@
 import React from 'react';
 import ProductCard, { ProductProps } from './ProductCard';
-import { Button } from "@nextui-org/button";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { getProduct, updateProduct } from '@/lib/getData';
 
 function ProductList({ products = [] }: { products: ProductProps[] }) {
     return (

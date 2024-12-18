@@ -1,10 +1,10 @@
-import { getProduct, getProducts } from "@/lib/getData";
 import { subtitle, title } from "@/components/primitives";
 import { ProductProps } from "@/components/ProductCard";
 import { Button } from "@nextui-org/button";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { Card, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
+import { getProduct, getProducts } from "@/lib/getData";
 
 type ProductPageProps = {
   id: string
@@ -14,7 +14,7 @@ export const revalidate = 10;
 export const dynamicParams = true;
 
 
-export async function generateMetadata({ params }: { params: ProductPageProps }) {
+export async function generateMetadata({ params }: { params: Promise<ProductPageProps> }) {
   const { id } = await params;
   const product = await getProduct(Number(id));
 
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export default async function ProductPage({ params }: { params: ProductPageProps }) {
+export default async function ProductPage({ params }: { params: Promise<ProductPageProps> }) {
   const { id } = await params;
   const product = await getProduct(Number(id));
 
