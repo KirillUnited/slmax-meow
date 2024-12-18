@@ -1,38 +1,46 @@
-import { subtitle, title } from "@/components/primitives";
-import { ProductProps } from "@/components/ProductCard";
 import { Button } from "@nextui-org/button";
 import { button as buttonStyles } from "@nextui-org/theme";
 import { Card, CardBody } from "@nextui-org/card";
 import { Image } from "@nextui-org/image";
+
+import { ProductProps } from "@/components/ProductCard";
+import { subtitle, title } from "@/components/primitives";
 import { getProduct, getProducts } from "@/lib/getData";
 
 type ProductPageProps = {
-  id: string
-}
+  id: string;
+};
 
 export const revalidate = 10;
 export const dynamicParams = true;
 
-
-export async function generateMetadata({ params }: { params: Promise<ProductPageProps> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<ProductPageProps>;
+}) {
   const { id } = await params;
   const product = await getProduct(Number(id));
 
   return {
     title: product?.title,
-    description: product?.description
+    description: product?.description,
   };
-};
+}
 
 export async function generateStaticParams() {
   const products = await getProducts();
 
   return products.map((product: ProductProps) => ({
-    id: String(product?.id)
-  }))
+    id: String(product?.id),
+  }));
 }
 
-export default async function ProductPage({ params }: { params: Promise<ProductPageProps> }) {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<ProductPageProps>;
+}) {
   const { id } = await params;
   const product = await getProduct(Number(id));
 
@@ -59,13 +67,19 @@ export default async function ProductPage({ params }: { params: Promise<ProductP
             <div className="flex flex-col gap-6 col-span-6 md:col-span-8">
               <div className="flex flex-col gap-2 flex-grow">
                 <div className="flex flex-col gap-0">
-                  <h3 className="font-semibold text-foreground/90">{product?.category}</h3>
+                  <h3 className="font-semibold text-foreground/90">
+                    {product?.category}
+                  </h3>
                   <p className={title({ color: "green" })}>{product?.price}</p>
                   <h1 className={subtitle()}>{product?.title}</h1>
                 </div>
                 <p>{product?.description}</p>
               </div>
-              <Button className={buttonStyles({ color: "primary", fullWidth: true })}>Add to cart</Button>
+              <Button
+                className={buttonStyles({ color: "primary", fullWidth: true })}
+              >
+                Add to cart
+              </Button>
             </div>
           </div>
         </CardBody>

@@ -12,9 +12,7 @@ export default async function Home() {
           <span className={title()}>Make&nbsp;</span>
           <span className={title({ color: "violet" })}>your&nbsp;</span>
           <br />
-          <span className={title()}>
-            eCommerce.
-          </span>
+          <span className={title()}>eCommerce.</span>
           <div className={subtitle({ class: "mt-4" })}>
             Everything you need to have a great shop.
           </div>
