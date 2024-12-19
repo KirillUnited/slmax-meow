@@ -1,14 +1,11 @@
 import { title, subtitle } from "@/components/primitives";
-import ProductList from "@/components/ProductList";
-import { getProducts } from "@/lib/getData";
+import Products from "@/components/shared/Products";
 
-export default async function Home() {
-  const products = await getProducts();
-
+export default function Home() {
   return (
     <>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-xl text-center justify-center">
+      <section className="section flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+        <div className="container inline-block max-w-xl text-center justify-center">
           <span className={title()}>Make&nbsp;</span>
           <span className={title({ color: "violet" })}>your&nbsp;</span>
           <br />
@@ -18,11 +15,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <section>
-        <div className="container">
-          <ProductList products={products} />
-        </div>
-      </section>
+      <Products />
     </>
   );
 }

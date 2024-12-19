@@ -1,13 +1,15 @@
-import { ProductProps } from "@/components/ProductCard";
+import { ProductProps } from "@/types";
 
 export async function getProducts() {
-  return await fetch("https://fakestoreapi.com/products?limit=3").then((res) =>
-    res.json(),
-  );
+  const res = await fetch("https://fakestoreapi.com/products?limit=3");
+
+  if (!res.ok) throw new Error("Failed to fetch data");
+
+  return res.json();
 }
-export async function getProduct(id: ProductProps["id"]) {
+export async function getProductById(id: ProductProps["id"]) {
   const products = await getProducts();
-  const product = products.find((item: ProductProps) => item.id === id);
+  const product = products?.find((item: ProductProps) => item.id === id);
 
   return product;
 }
