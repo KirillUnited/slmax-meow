@@ -5,16 +5,8 @@ import { Button } from "@nextui-org/button";
 import { Image } from "@nextui-org/image";
 import Link from "next/link";
 
-import { title } from "./primitives";
-
-export type ProductProps = {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-};
+import { title } from "@/components/primitives";
+import { ProductProps } from "@/types";
 
 function ProductCard({ product }: { product: ProductProps }) {
   return (
