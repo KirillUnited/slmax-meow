@@ -9,7 +9,7 @@ async function Products() {
   const products = await getProducts();
 
   return (
-    <section className="section">
+    <section className="section py-8">
       <div className="container">
         <Suspense fallback={<ProductCardSkeleton />}>
           <ProductList products={products} />
